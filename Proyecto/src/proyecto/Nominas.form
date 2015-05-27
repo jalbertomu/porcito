@@ -49,13 +49,13 @@
                               <Group type="102" attributes="0">
                                   <Component id="JDNI" min="-2" pref="102" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jButton3" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="Comprueba" min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="316" pref="359" max="32767" attributes="0"/>
+              <EmptySpace min="316" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,7 +81,7 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="JDNI" min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jButton3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="Comprueba" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -143,6 +143,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="GENERAR N&#xd3;MINA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
@@ -176,10 +179,13 @@
         <Property name="text" type="java.lang.String" value="Introduzca el DNI para generar la n&#xf3;mina"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="Comprueba">
       <Properties>
         <Property name="text" type="java.lang.String" value="Aceptar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CompruebaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

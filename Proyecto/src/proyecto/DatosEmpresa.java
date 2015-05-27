@@ -20,7 +20,7 @@ public class DatosEmpresa extends javax.swing.JPanel {
     public DatosEmpresa() {
         initComponents();
     }
-    private JPanel current;
+    
     private PrincipalEmpresa b;
     boolean modificado = false;
     String palabra;

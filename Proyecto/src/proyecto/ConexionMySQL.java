@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author Alberts
  */
 public class ConexionMySQL {
-     public String bd = "usuario";
+     public String bd = "proyecto";
     public String login = "root";
     public String password = "";
     public String url = "jdbc:mysql://localhost/" + bd;
@@ -30,7 +30,7 @@ public class ConexionMySQL {
             Class.forName("org.gjt.mm.mysql.Driver");
             link = DriverManager.getConnection(this.url, this.login, this.password);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Va mal");
         }
         return link;
     }
