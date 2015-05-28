@@ -116,10 +116,64 @@ public class ModificarTrabajador extends javax.swing.JPanel {
             }
         }
     }
-    
-    public void modificarUsuario(){
-        
+
+    public void modificarUsuario() {
+        if (!Comprueba.getText().equalsIgnoreCase("")) {
+            int confirm = JOptionPane.showOptionDialog(null, "¿Quieres modificar los datos del trabajador?", "Confirmar Modificación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, null, null);
+            if (confirm == 0) {
+                ConexionMySQL mysql = new ConexionMySQL();
+                Connection cn = mysql.conectar();
+                String cod = DNI.getText();
+                cod = Comprueba.getText();
+                String DN = DNI.getText();
+                String Nom = Nombre.getText();
+                String Ape = Apellidos.getText();
+                String Dir = Direccion.getText();
+                String Cat = Categoria.getText();
+                String Pue = Puesto.getText();
+                String Fec = Fecha.getText();
+                String Es1 = Estado1.getText();
+                String Sue = Sueldo.getText();
+                String Tel = Telefono.getText();
+                String Es2 = Estado2.getText();
+                String SS1 = Numero.getText();
+                try {
+
+                    PreparedStatement pst = cn.prepareStatement("UPDATE trabajador SET dni=?, nombre=?, apellidos=?,  direccion=?, categoria=?, puesto=?, fecha_nacimiento=?,  estado_civil=?, sueldo=?, telefono=?, estado_empresa=?, SS=? where dni='" + cod + "'");
+                    pst.setString(1, DN);
+                    pst.setString(2, Nom);
+                    pst.setString(3, Ape);
+                    pst.setString(4, Dir);
+                    pst.setString(5, Cat);
+                    pst.setString(6, Pue);
+                    pst.setString(7, Fec);
+                    pst.setString(8, Es1);
+                    pst.setString(9, Sue);
+                    pst.setString(10, Tel);
+                    pst.setString(11, Es2);
+                    pst.setString(12, SS1);
+                    pst.executeUpdate();
+
+                    JOptionPane.showMessageDialog(null, "El trabajador ha sido modificado");
+                    DNI.setText("");;
+                    Nombre.setText("");
+                    Apellidos.setText("");
+                    Direccion.setText("");
+                    Categoria.setText("");
+                    Puesto.setText("");
+                    Fecha.setText("");
+                    Estado1.setText("");
+                    Sueldo.setText("");
+                    Telefono.setText("");
+                    Estado2.setText("");
+                    Numero.setText("");
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                }
+            }
+        }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -216,20 +270,31 @@ public class ModificarTrabajador extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Contrato_22.jpg"))); // NOI18N
         jButton2.setText("Modificar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jalberto.munoz\\Documents\\NetBeansProjects\\porcito\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
         jButton3.setText("Atrás");
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Eliminar.jpg"))); // NOI18N
         jButton4.setText("Eliminar");
@@ -408,11 +473,11 @@ public class ModificarTrabajador extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
-        
+
     }//GEN-LAST:event_jComboBox2MouseClicked
 
     private void EstadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EstadoMouseClicked
-       
+
     }//GEN-LAST:event_EstadoMouseClicked
 
     private void EstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoActionPerformed
@@ -422,6 +487,10 @@ public class ModificarTrabajador extends javax.swing.JPanel {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         Estado1.setText((String) jComboBox2.getSelectedItem());
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

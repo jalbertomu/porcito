@@ -27,6 +27,7 @@ public class TrabajadoresSubFrame extends javax.swing.JFrame {
     public TrabajadoresSubFrame() {
         
         initComponents();
+        this.setLocationRelativeTo(null);
        consultarUsuarios();
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         WindowAdapter exitListener = new WindowAdapter() {
@@ -99,7 +100,9 @@ public class TrabajadoresSubFrame extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Información de los trabajadores");
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jalberto.munoz\\Documents\\NetBeansProjects\\porcito\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
         jButton3.setText("Atrás");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
