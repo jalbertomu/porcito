@@ -28,8 +28,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="usuario" max="32767" attributes="0"/>
-                                  <Component id="usuario1" pref="156" max="32767" attributes="0"/>
+                                  <Component id="usuario" pref="156" max="32767" attributes="0"/>
+                                  <Component id="usuario1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
@@ -38,8 +38,8 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="contraseña1" pref="173" max="32767" attributes="0"/>
-                                  <Component id="contraseña" max="32767" attributes="0"/>
+                                  <Component id="contraseña1" max="32767" attributes="0"/>
+                                  <Component id="contraseña" pref="173" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -77,30 +77,30 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="46" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" pref="24" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="usuario" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="contraseña" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                   <Component id="jLabel4" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="contraseña" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="usuario1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="contraseña1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="usuario1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButton1" alignment="1" min="-2" pref="97" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="1" min="-2" pref="97" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -188,10 +188,6 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="contrase&#xf1;a1">
     </Component>
-    <Component class="javax.swing.JPasswordField" name="contrase&#xf1;a">
-    </Component>
-    <Component class="javax.swing.JPasswordField" name="usuario1">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -213,6 +209,13 @@
         </Property>
         <Property name="text" type="java.lang.String" value="despu&#xe9;s el nuevo usuario o contrase&#xf1;a o ambos."/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="usuario1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="usuario1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="contrase&#xf1;a">
     </Component>
   </SubComponents>
 </Form>

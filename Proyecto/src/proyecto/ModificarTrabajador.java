@@ -46,7 +46,7 @@ public class ModificarTrabajador extends javax.swing.JPanel {
         ConexionMySQL mysql = new ConexionMySQL();
         Connection cn = mysql.conectar();
 
-        vSQL = "SELECT dni, nombre, apellidos, direccion, categoria, puesto, fecha_nacimiento, estado_civil, sueldo, horas_extra, telefono, estado_empresa, SS, IRPF FROM trabajador";
+        vSQL = "SELECT dni, nombre, apellidos, direccion, categoria, puesto, fecha_nacimiento, estado_civil, sueldo, telefono, estado_empresa, SS, IRPF FROM trabajador";
 
         try {
 
@@ -110,6 +110,7 @@ public class ModificarTrabajador extends javax.swing.JPanel {
                     Telefono.setText("");
                     Estado2.setText("");
                     Numero.setText("");
+                    
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex);
                 }
@@ -465,6 +466,8 @@ public class ModificarTrabajador extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         borrarUsuario();
+        Comprueba.setText("");
+        Comprueba.setEditable(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
@@ -485,6 +488,8 @@ public class ModificarTrabajador extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         modificarUsuario();
+        Comprueba.setText("");
+        Comprueba.setEditable(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

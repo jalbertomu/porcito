@@ -48,10 +48,10 @@ public class AñadirTrabajador extends javax.swing.JPanel {
         suel = Sueldo.getText();
         tel = Telefono.getText();
         num = NumeroSS.getText();
+       String codigo="1";
         
         
-        
-        vSQL ="INSERT INTO trabajador (dni, nombre, apellidos, direccion, categoria, puesto, fecha_nacimiento, estado_civil, sueldo, horas_extra, telefono, estado_empresa, SS, IRPF)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        vSQL ="INSERT INTO trabajador (dni, nombre, apellidos, direccion, categoria, puesto, fecha_nacimiento, estado_civil, sueldo, telefono, estado_empresa, SS, IRPF, empresa_id)VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try{
             PreparedStatement pst = cn.prepareStatement(vSQL);
@@ -64,12 +64,11 @@ public class AñadirTrabajador extends javax.swing.JPanel {
             pst.setString(7, fech);
             pst.setString(8, est);
             pst.setString(9, suel);
-            pst.setString(10, "0");
-            pst.setString(11, tel);
-            pst.setString(12, "deAlta");
-            pst.setString(13, num);
-            pst.setString(14, "12");
-           
+            pst.setString(10, tel);
+            pst.setString(11, "deAlta");
+            pst.setString(12, num);
+            pst.setString(13, "2");
+            pst.setString(14, codigo);
             int n = pst.executeUpdate();
             
             if (n>0){
