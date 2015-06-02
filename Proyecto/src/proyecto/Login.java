@@ -5,6 +5,10 @@
  */
 package proyecto;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -105,8 +109,29 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Empresa percebesa = new Empresa("Percebes", "123");
-        if(User.getText().equals(percebesa.getUsuario())&&Password.getText().equals(percebesa.getContraseña())){
+          
+        ConexionMySQL mysql = new ConexionMySQL();
+        Connection cn = mysql.conectar();
+         String vSQL = new String();
+         String name="";
+         String password="";
+        vSQL= "SELECT usuario, password FROM empresa";
+        
+        try{
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery(vSQL);
+            
+            while (rs.next()){
+                name=rs.getString("usuario");
+                password=rs.getString("password");
+            }
+          
+        }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        
+        if(User.getText().equals(name)&&Password.getText().equals(password)){
             PrincipalEmpresa pe1 = new PrincipalEmpresa();
             pe1.setVisible(true);
             this.dispose();

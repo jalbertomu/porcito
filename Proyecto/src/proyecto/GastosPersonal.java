@@ -35,15 +35,15 @@ public class GastosPersonal extends javax.swing.JPanel {
             double total=0;
             double IRPFTotal=0;
             int trabajadores=0;
-            
-            vSQL="SELECT salario, IRPF FROM trabajador";
+           
+            vSQL="SELECT sueldo, IRPF FROM trabajador";
             try{
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(vSQL);
             
             while (rs.next()){
-               IRPFTotal = IRPFTotal + Double.parseDouble(rs.getString("salario"))*(Double.parseDouble(rs.getString("IRPF"))/100);
-               total=Double.parseDouble(rs.getString("salario"))+total;
+               IRPFTotal = IRPFTotal + Double.parseDouble(rs.getString("sueldo"))*(Double.parseDouble(rs.getString("IRPF"))/100);
+               total=Double.parseDouble(rs.getString("sueldo"))+total;
                trabajadores++;
             }
             jTextField2.setText(String.valueOf(total));
@@ -99,7 +99,7 @@ public class GastosPersonal extends javax.swing.JPanel {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\jalberto.munoz\\Documents\\NetBeansProjects\\porcito\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alberts\\Documents\\NetBeansProjects\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
         jButton2.setText("Atrás");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -172,7 +172,7 @@ public class GastosPersonal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+             desglosarCalculos();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

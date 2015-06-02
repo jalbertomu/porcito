@@ -109,7 +109,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\jalberto.munoz\Documents\NetBeansProjects\porcito\Proyecto\src\imagenes\CalculoGasto2.jpg"/>
+          <Image iconType="2" name="C:\Users\Alberts\Documents\NetBeansProjects\Proyecto\src\imagenes\CalculoGasto2.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Gastos"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>

@@ -6,6 +6,7 @@
 package proyecto;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,12 @@ public class CalculoIRP extends javax.swing.JPanel {
         initComponents();
         minimo.setEditable(false);
         contrato.setEditable(false);
+        salario.setEditable(false);
+        irpf.setEditable(false);
     }
+    
+    String DNI2="";
+    boolean calcular= false;
 
     public void calcular() {
         if (contrato.getText().equalsIgnoreCase("indefinido") || contrato.getText().equalsIgnoreCase("interinidad")) {
@@ -60,20 +66,26 @@ public class CalculoIRP extends javax.swing.JPanel {
         String vSQL = new String();
         ConexionMySQL mysql = new ConexionMySQL();
         Connection cn = mysql.conectar();
-
-        vSQL = "SELECT dni, salario FROM trabajador WHERE dni='" + DNI.getText() + "'";
+        boolean encontrado=false;
+        vSQL = "SELECT dni, sueldo FROM trabajador WHERE dni='" + DNI.getText() + "'";
         try {
 
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(vSQL);//devuelve el conjunto de datos.
             //ResultSet rs = mysqul.obtenerTable ("usuario");
+            while(rs.next()){
             String datos = rs.getString("dni");
-            if (datos.equalsIgnoreCase(Comprueba.getText())) {
+            if (datos.equalsIgnoreCase(DNI.getText())) {
                 DNI.setText(rs.getString("dni"));
-                salario.setText(rs.getString("salario"));
-            } else {
+                DNI2=DNI.getText();
+                salario.setText(rs.getString("sueldo"));
+                encontrado=true;
+            }
+            }
+            if(!encontrado){
                 JOptionPane.showMessageDialog(null, "Ese número no corresponde con el de ningún empleado");
             }
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
@@ -116,6 +128,11 @@ public class CalculoIRP extends javax.swing.JPanel {
         DNI.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         Comprueba.setText("Aceptar");
+        Comprueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CompruebaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Mínimo Personal");
@@ -144,7 +161,7 @@ public class CalculoIRP extends javax.swing.JPanel {
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\jalberto.munoz\\Documents\\NetBeansProjects\\porcito\\Proyecto\\src\\imagenes\\Aceptar.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alberts\\Documents\\NetBeansProjects\\Proyecto\\src\\imagenes\\Aceptar.png")); // NOI18N
         jButton2.setText("Aceptar");
         jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -156,7 +173,7 @@ public class CalculoIRP extends javax.swing.JPanel {
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\jalberto.munoz\\Documents\\NetBeansProjects\\porcito\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Alberts\\Documents\\NetBeansProjects\\Proyecto\\src\\imagenes\\Atras.jpg")); // NOI18N
         jButton3.setText("Atrás");
         jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -284,7 +301,7 @@ public class CalculoIRP extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void minimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_minimoActionPerformed
 
     private void MinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinActionPerformed
@@ -293,11 +310,37 @@ public class CalculoIRP extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         calcular();
+        calcular = true;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        if (calcular){
+            ConexionMySQL mysql = new ConexionMySQL();
+        Connection cn = mysql.conectar();
+        String IRPF= irpf.getText();
+     
+        String vSQL="";
+        try{
+             vSQL ="UPDATE trabajador SET IRPF=? WHERE dni='"+DNI2+"'";
+             PreparedStatement pst = cn.prepareStatement(vSQL);
+             pst.setString(1, IRPF);
+             pst.executeUpdate();
+             }catch (SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        DNI2="";
+        DNI.setText("");
+        minimo.setText("");
+        salario.setText("");
+        contrato.setText("");
+        irpf.setText("");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void CompruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompruebaActionPerformed
+        comprueba();
+        
+    }//GEN-LAST:event_CompruebaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

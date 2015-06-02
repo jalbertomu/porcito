@@ -10,10 +10,6 @@ public class Empresa {
     String direccion;
     String usuario;
     String contraseña;
-    Enum RazonSocial;
-    String ciudad;
-    String telefono;
-    String provincia;
     
     public Empresa (String usuario, String contraseña){
         this.usuario = usuario;
@@ -25,10 +21,6 @@ public class Empresa {
         this.direccion = direccion;
         this.usuario = usuario;
         this.contraseña = contraseña;
-        this.RazonSocial = RazonSocial;
-        this.ciudad = ciudad;
-        this.telefono = telefono;
-        this.provincia = provincia;
     }
     
 
